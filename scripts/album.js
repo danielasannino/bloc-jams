@@ -1,4 +1,4 @@
-
+// Example Album
 
 var albumPicasso = {
     title: 'The Colors',
@@ -10,12 +10,12 @@ var albumPicasso = {
         { title: 'Blue', duration: '4:26' },
         { title: 'Green', duration: '3:14' },
         { title: 'Red', duration: '5:01' },
-        { title: 'Pink', duration: '3:21'},
-        { title: 'Magenta', duration: '2:15'}
+        { title: 'Pink', duration: '3:21' },
+        { title: 'Magenta', duration: '2:15' }
     ]
 };
 
-
+//Another Example Album
 
 var albumMarconi = {
     title: 'The Telephone',
@@ -26,19 +26,19 @@ var albumMarconi = {
     songs: [
         { title: 'Hello, Operator?', duration: '1:01' },
         { title: 'Ring, ring, ring', duration: '5:01' },
-        { title: 'Fits in your pocket', duration: '3:21'},
-        { title: 'Can you hear me now?', duration: '3:14' },
-        { title: 'Wrong phone number', duration: '2:15'}
+        { title: 'Fits in your pocket', duration: '3:21' },
+        { title: 'Can you hear me now?', duration: '3:14' }
+        { title: 'Wrong phone number', duration: '2:15' }
     ]
 };
 
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
-      '<tr class="album-view-song-item">'
-    + '  <td class="song-item-number">' + songNumber + '</td>'
-    + '  <td class="song-item-title">' + songName + '</td>'
-    + '  <td class="song-item-duration">' + songLength + '</td>'
-    + '</tr>'
+        '<tr class="album-view-song-item">'
+    + '     <td class="song-item-number">' + songNumber + '</td>'
+    + '     <td class="song-item-title">' + songName + '</td>'
+    + '     <td class="song-item-duration">' + songLength + '</td>'
+    + '     </tr>'
     ;
     
     return template;
@@ -64,8 +64,8 @@ var setCurrentAlbum = function(album) {
     
     for (var i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-    
-    }
+        
+   }
 };
 
 window.onload = function() {
