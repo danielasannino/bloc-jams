@@ -1,5 +1,3 @@
-// Example Album
-
 var albumPicasso = {
     title: 'The Colors',
     artist: 'Pablo Picasso',
@@ -15,7 +13,6 @@ var albumPicasso = {
     ]
 };
 
-//Another Example Album
 
 var albumMarconi = {
     title: 'The Telephone',
@@ -32,6 +29,22 @@ var albumMarconi = {
     ]
 };
 
+
+var albumMuse = {
+    title: 'Drones',
+    artist: 'Muse',
+    label: 'Warner Bros',
+    year: '2015',
+    albumArtUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/MuseDronesCover.jpg/220px-MuseDronesCover.jpg',
+    songs: [
+        { title: 'Dead Inside', duration: '4:23' },
+        { title: 'Psycho', duration: '5:17' },
+        { title: 'Mercy', duration: '3:52' },
+        { title: 'Reapers', duration: '6:00' },
+        { title: 'The Handler', duration: '4:34' }
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
@@ -44,13 +57,13 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
-var setCurrentAlbum = function(album) {
-    
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
     var albumImage = document.getElementsByClassName('album-cover-art')[0];
     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+var setCurrentAlbum = function(album) {
     
     
     albumTitle.firstChild.nodeValue = album.title;
@@ -75,6 +88,9 @@ var findParentByClassName = function(element, targetClass) {
             currentParent = currentParent.parentElement;
         }
         return currentParent;
+
+        albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);    
+
     }
 };
 
@@ -151,3 +167,16 @@ for (var i = 0; i < songRows.length; i++) {
         clickHandler(event.target);
     });
 } 
+    
+    var albums = [albumPicasso, albumMarconi, albumMuse];
+    var index = 1;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index === albums.length) {
+            index = 0;
+            
+        }
+    });
+};
+
