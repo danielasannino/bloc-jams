@@ -27,7 +27,7 @@ var createSongRow = function(songNumber, songName, songLength) {
           currentlyPlayingSongNumber = null;
           currentSongFromAlbum = null;
       }
-  };
+ 
     
     var onHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
@@ -50,7 +50,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     $row.find('.song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
-    
+  };
 
 var setCurrentAlbum = function(album) {
   currentAlbum = album;
@@ -195,6 +195,6 @@ var updatePlayerBarSong = function() {
       index = 0;
 
     }
-  })
+  });
 };
 
