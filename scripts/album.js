@@ -80,11 +80,11 @@ var setCurrentAlbum = function(album) {
 
 var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
-}
+};
 
 var nextSong = function() {
      var getLastSongNumber = function(index) {
-         return index == 0 ? currentAlbum.songs.length : index;
+         return index === 0 ? currentAlbum.songs.length : index;
      };
     
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
