@@ -18,14 +18,15 @@ var clickHandler = function () {
     var songNumber = parseInt($(this).attr('data-song-number'));
 
     if (currentlyPlayingSongNumber !== null) {
-        var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
-        currentlyPlayingCell.html(currentlyPlayingSongNumber);
+        var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+currentlyPlayingCell.html(currentlyPlayingSongNumber);
     }
+    
     if (currentlyPlayingSongNumber !== songNumber) {
         $(this).html(pauseButtonTemplate);
-        currentlyPlayingSongNumber = parseInt(songNumber);
-        currentSongFromAlbum = currentAlbum.songs[parseInt(songNumber) - 1];
+        setSong(songNumber);
         updatePlayerBarSong();
+        
     } else if (currentlyPlayingSongNumber === songNumber) {
         $(this).html(playButtonTemplate);
         $('.main-controls .play-pause').html(playerBarPlayButton);
