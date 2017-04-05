@@ -26,7 +26,7 @@ var clickHandler = function () {
     
     if (currentlyPlayingSongNumber !== songNumber) {
         
-        $(this).html(pauseButtonTemplate);
+        $(this).html(playButtonTemplate);
         setSong(songNumber);
         currentSoundFile.play();
         updateSeekBarWhileSongPlays();
@@ -38,6 +38,7 @@ var clickHandler = function () {
         $volumeThumb.css({left: currentVolume + '%'});
         
         $(this).html(pauseButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPauseButton);
         updatePlayerBarSong();
         
     } else if (currentlyPlayingSongNumber === songNumber) {
@@ -52,6 +53,7 @@ var clickHandler = function () {
         }
         
     }
+    
 };
 
 var onHover = function (event) {
@@ -105,10 +107,10 @@ var updateSeekBarWhileSongPlays = function() {
             var $seekBar = $('.seek-control .seek-bar');
             
             updateSeekPercentage($seekBar, seekBarFillRatio);
-<<<<<<< HEAD
-=======
+
+
             setCurrentTimeInPlayerBar(this.getTime());
->>>>>>> assignment-21
+
         });
     }
 };
