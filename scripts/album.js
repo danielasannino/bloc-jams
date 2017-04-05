@@ -42,12 +42,12 @@ var clickHandler = function () {
         
     } else if (currentlyPlayingSongNumber === songNumber) {
         if (currentSoundFile.isPaused()) {
-            $(this).html(pauseButtonTemplate);
-            $('.main-controls .play-pause').html(playerBarPauseButton);
-            currentSoundFile.play();
-        } else {
             $(this).html(playButtonTemplate);
             $('.main-controls .play-pause').html(playerBarPlayButton);
+            currentSoundFile.play();
+        } else {
+            $(this).html(pauseButtonTemplate);
+            $('.main-controls .play-pause').html(playerBarPauseButton);
             currentSoundFile.pause(); 
         }
         
@@ -72,8 +72,6 @@ var offHover = function (event) {
     }
     console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
 };
-
-
 
 
 var setCurrentAlbum = function (album) {
@@ -280,7 +278,6 @@ var togglePlayFromPlayerBar = function() {
     
     if (currentSoundFile.isPaused()) {
         $(currentlyPlayingCell).html(pauseButtonTemplate);
-        
         $('.main-controls .play-pause').html(playerBarPauseButton);
         currentSoundFile.play();
     }
