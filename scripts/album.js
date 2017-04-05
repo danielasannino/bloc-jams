@@ -47,7 +47,6 @@ var clickHandler = function () {
     }
 };
 
-
 var onHover = function (event) {
     var songNumberCell = $(this).find('.song-item-number');
     var songNumber = songNumberCell.attr('data-song-number');
@@ -108,7 +107,6 @@ var setSong = function(songNumber) {
     currentSongFromAlbum = currentAlbum.songs[songNumber - 1] ;
     
     currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
-        
         formats: [ 'mp3' ],
         preload: true
     });
